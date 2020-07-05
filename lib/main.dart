@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_gifs/ui/gif_page.dart';
+import 'package:flutter_app_gifs/ui/home_page.dart';
 
 
-String _getUrlTopGifs(){
-  return "https://api.giphy.com/v1/gifs/trending?api_key=L2r2lBQuhPgLrudyNhdYNr47NLcHo3ti&limit=25&rating=g";
-}
-
-String _getUrlGifsSearch(word_search,{limit=25,offset=0}){
-  return "https://api.giphy.com/v1/gifs/search?api_key=L2r2lBQuhPgLrudyNhdYNr47NLcHo3ti&q=${word_search}&limit=${limit}&offset=${offset}&rating=g&lang=pt";
-}
 
 void main() {
   runApp(MyApp());
@@ -19,8 +14,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: Container()
+      home: HomePage(),
+      theme: ThemeData(
+        hintColor: Colors.white,
+        inputDecorationTheme: InputDecorationTheme(
+          enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+          focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.blueAccent))
+        )
+      ),
     );
   }
 }
-
